@@ -1,0 +1,38 @@
+{
+  "name": "aws-xray-mock",
+  "version": "0.0.1",
+  "description": "A mock of the aws-xray-sdk using jest",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "rm -rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MechanicalRock/aws-xray-mock.git"
+  },
+  "keywords": [
+    "aws",
+    "xray",
+    "mock"
+  ],
+  "author": "rickfoxcroft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MechanicalRock/aws-xray-mock/issues"
+  },
+  "homepage": "https://github.com/MechanicalRock/aws-xray-mock#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.10.4",
+    "aws-xray-sdk": "^2.2.0",
+    "coveralls": "^3.0.3",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  },
+  "files": [
+    "dist/"
+  ]
+}

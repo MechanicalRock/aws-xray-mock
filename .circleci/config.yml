@@ -28,7 +28,11 @@ jobs:
 
       - run: 
           name: Test
-          command: npm test | node_modules/coveralls/bin/coveralls.js
+          command: npm test
+
+      - run:
+          name: Publish coverage report 
+          command: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
 
       - run:
           name: Build
@@ -54,10 +58,6 @@ workflows:
   version: 2
   test-deploy:
     jobs:
-      - test:
-          filters:
-            tags:
-              only: /^v.*/
       - deploy:
           requires:
             - test

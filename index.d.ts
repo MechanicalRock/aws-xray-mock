@@ -1,5 +1,8 @@
 declare module 'aws-xray-sdk' {
   export function captureAWSClient<T>(client: T): T;
+  export function captureAWS<T>(aws: T): T;
+  export function captureHTTPs<T>(http: T, enabled: Boolean): T;
+  export function captureHTTPsGlobal<T>(httpGlobal: T, enabled: Boolean): T;
   export function getSegment(): Segment;
 
   export class Segment {

@@ -30,12 +30,34 @@ describe('xray sdk mock', () => {
     expect(childSegmentSpy).not.toThrowError();
   });
 
-  it('should return an object of the same type', () => {
+  describe("wrapped functions", () => {
+    it("should return an object of the same type with captureAWSClient", () => {
+      const testObj = new utils.TestInterface("bar", 1);
+      const newObj = utils.wrapClient(testObj);
 
-    const testObj = new utils.TestInterface('bar', 1);
-    const newObj = utils.wrapClient(testObj);
+      expect(newObj).toBeInstanceOf(utils.TestInterface);
+    });
 
-    expect(newObj).toBeInstanceOf(utils.TestInterface);
+    it("should return an object of the same type with captureAWS", () => {
+      const testObj = new utils.TestInterface("bar", 1);
+      const newObj = utils.wrapAWS(testObj);
+
+      expect(newObj).toBeInstanceOf(utils.TestInterface);
+    });
+
+    it("should return an object of the same type with captureHTTPs", () => {
+      const testObj = new utils.TestInterface("bar", 1);
+      const newObj = utils.wrapHTTP(testObj);
+
+      expect(newObj).toBeInstanceOf(utils.TestInterface);
+    });
+
+    it("should return an object of the same type with captureHTTPsGlobal", () => {
+      const testObj = new utils.TestInterface("bar", 1);
+      const newObj = utils.wrapHTTPsGlobal(testObj);
+
+      expect(newObj).toBeInstanceOf(utils.TestInterface);
+    });
   });
 
 });

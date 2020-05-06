@@ -1,6 +1,6 @@
-import AWSXray from 'aws-xray-sdk';
+import AWSXray, { Segment } from 'aws-xray-sdk';
 
-export let segment = AWSXray.getSegment();
+export let segment = AWSXray.getSegment() as Segment;
 
 export async function newParentSegment() {
   try {
@@ -32,3 +32,16 @@ export class TestInterface {
 export function wrapClient<T>(client: T): T {
   return AWSXray.captureAWSClient(client);
 }
+
+export function wrapAWS<T>(aws: T): T {
+  return AWSXray.captureAWS(aws);
+}
+
+export function wrapHTTP<T>(http: T): T {
+  return AWSXray.captureHTTPs(http, true);
+}
+
+export function wrapHTTPsGlobal<T>(client: T): T {
+  return AWSXray.captureHTTPsGlobal(client, true);
+}
+   

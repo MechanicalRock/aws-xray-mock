@@ -25,6 +25,9 @@ jest.mock('aws-xray-sdk', () => {
       }
       return segment;
     },
-    captureAWSClient: <T>(client: T) => client
+    captureAWSClient: <T>(client: T) => client,
+    captureAWS: <T>(aws: T) => aws,
+    captureHTTPs: <T>(http: T) => http,
+    captureHTTPsGlobal: <T>(httpGlobal: T) => httpGlobal,
   };
 });

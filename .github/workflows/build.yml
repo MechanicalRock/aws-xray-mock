@@ -27,4 +27,7 @@ jobs:
           npm install
           npm run build
           npm test
-          bash script/coverage.sh
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

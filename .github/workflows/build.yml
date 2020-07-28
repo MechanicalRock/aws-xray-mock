@@ -27,4 +27,4 @@ jobs:
           npm install
           npm run build
           npm test
-          cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+          bash script/coverage.sh
